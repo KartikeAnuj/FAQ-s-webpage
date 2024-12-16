@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div>
+          <h1 >Lender’s FAQs</h1>
+          <h1>Unified Lending Interface (ULI)</h1>
+          
+          <p>
+            Customer support for technical issue. <br>Please contact the platform support center (PSC).<br>Email:<a>support@rbihub.io, <a>support@rbihubmail.in</a><br>We respond within 2h during business hours (8am to 8pm IST)
+          </p>
+        </div>
+        <img src="rbih.png" alt="FAQ Illustration">
+      </div>
+    </div>
+  </header>
+
+  <main class="faq-section container" border: 1px>
+    <nav class="faq-categories">
+      <ul>
+        <li><a href="#FAQs">FAQs</a></li>
+        <li><a href="#LRS Service">LRS Service</a></li>
+        <li><a href="#PAN Service">PAN Service</a></li>
+        <li><a href="#NeSL Service">NeSL</a></li>
+        <li><a href="#Bhashini">Transliteration</a></li>
+        <li><a href="#Teal">Teal India</a></li>
+        <li><a href="#EKYC">eKYC</a></li>
+        
+      </ul>
+    </nav>
+
+    <section class="faq-category" id="about-us">
+      <h2>FAQs</h2>
+      <div class="faq">
+        <div class="question">1. I can't find the answer to my question. Who should I contact?</div>
+        <div class="answer">If you cannot find the answer to your question, please contact us by sending an email to  support@rbihub.io 
+
+            For best results when requesting help, please keep the following in mind:
+            Search the current document. Chances are someone else has experienced a similar issue and found a fix.
+            In case of facing an issue with an API. Please send us the curl command or URL, headers, payload body, and response for us to give a faster resolution.
+            </div>
+      </div>
+      <div class="faq">
+        <div class="question">2. What does the below error mean- HTTP 401 Unauthorized/"code": "900902"/"message": "Missing Credentials"?</div>
+        <div class="answer">This error occurs when the auth token is not added in the authorization header.
+            You can add this token in Authorization> Bearer Token>Token (Value of the token) as per the below screenshot:
+            </div>
+      </div>
+      <div class="faq">
+        <div class="question">3. HTTP 401 Unauthorized-"code": "900901", "message": "Invalid Credentials"?</div>
+        <div class="answer">This error occurs when the auth token has expired. Auth token has a validity of 6 hours.</div>
+      </div>
+      <div class="faq">
+        <div class="question">4. HTTP 401 Unauthorized- Response {“code": "900901”, “message": "Invalid Credentials”, “description": "Invalid JWT token. Make sure you have provided the correct security credentials"}</div>
+        <div class="answer">The old token becomes invalid once a new token is generated. Use the newly generated token.
+            By using the updated token, you should be able to authenticate your requests successfully.
+            </div>
+      </div>
+      <div class="faq">
+        <div class="question">5. HTTP 404 Not Found {“code": "404”, “type": "Status report”, "message": "Not Found", "description": "The requested resource is not available."}</div>
+        <div class="answer">The access token in the Authorization header is used to authenticate the API that is being accessed. 
+            Hence use Authorization: Bearer <your-token>
+            
+            </div>
+      </div>
+      <div class="faq">
+        <div class="question">6. Do I need to use Authorization or Authentication in the header?</div>
+        <div class="answer">The old token becomes invalid once a new token is generated. Use the newly generated token.
+            By using the updated token, you should be able to authenticate your requests successfully.
+            </div>
+      </div>
+      <div class="faq">
+        <div class="question">7. Do I need to generate the client-id, client-secret, session-id, and session-key over and over again to generate the auth token?  </div>
+        <div class="answer">The short answer is no. Once the encrypted client-id, client-secret, session-id, and session-key are generated using the same values you can generate the auth token over and over again. 
+            However, please note that the token has an expiration time of 6 hours.
+             </div>
+      </div>
+      <div class="faq">
+        <div class="question">8. How to generate HMAC?
+        </div>
+        <div class="answer"> The steps to generate HMAC will be sent over mail. The hmac will be a base64 encoded string and the length of hmac will always be of length 44 irrespective of the size of the payload. </div>
+      </div>
+      <div class="faq">
+        <div class="question">9. HTTP 403 Forbidden {  "code": "900908”,  "message": "Resource Forbidden",    "description": "User is not authorised to access the resource."}? </div>
+        <div class="answer">You will have to subscribe this API in the API gateway. 
+            The steps to subscribing services is mentioned in Section 10.2 in Sandbox Access - SOP document placed in our Google Drive. </div>
+      </div>
+    </div>
+    <div class="faq">
+      <div class="question">10. What is the encryptedAesKey and ivParameterSpec in the authorization and authentication API specification?
+    </div>
+      <div class="answer">The encryptedAesKey is the session-key and the ivParameterSpec is the session-id.
+    </div>
+    </div>
+</div>
+<div class="faq">
+  <div class="question">11. What to do when I face an “invalid client-id value” and error- “E032”?
+</div>
+  <div class="answer">Always ensure that the client-id value that you have received during onboarding is encoded to base64 and sent in the header of the subscribed APIs.
+    Example: ClientID: aQIKPTiOL73_g7hWO49upZvFaRst 
+    Base64 value: YVFJS1BUaU9MNzNfZzdoV080OXVwWnZGYVJzdA== 
+    
+    Also, refer to other FAQs regarding client-id issues. 
+    You may face this issue when the auth token that is generated is different from the one being sent in the header of the subscribed API. 
+     </div>
+</div>
+</div>
+<div class="faq">
+  <div class="question">12. What is the meaning of the consent-id header? </div>
+  <div class="answer"> The consent-id is a mandatory header which is an alphanumeric format that lenders need to generate. The logic is left up to the lender to generate the consent-id. 
+
+    This field is mandatory because it is to record that consent has been taken from the borrower to process the borrower's data.
+    </div>
+</div>
+</div>
+<div class="faq">
+  <div class="question">13.What is IP whitelisting and what should I do?
+  </div>
+  <div class="answer"> IP whitelisting is when network access is granted solely to specific IP addresses.
+    For the ingress i.e., incoming traffic to the IPTPF platform from banks, whitelist the public IP 103.110.187.82 
+    For the egress i.e., outgoing traffic from the IPTPF platform to banks, whitelist the two public IPs 103.110.186.137 & 103.110.187.111  
+    
+    Banks are also required to share their IPs which are to be whitelisted by the platform during onboarding to access the platform, api’s. 
+    </div>
+</div>
+</div>
+<div class="faq">
+  <div class="question">14. Where can I find the lender onboarding kit, SOP, and API specification?  </div>
+  <div class="answer"> You can find the lender onboarding kit in our google drive. 
+  </div>
+</div>
+ </div>
+      <div class="faq">
+        <div class="question">15.  What is the platform-public-key.pem file mentioned in the Authentication and Authorization API Specification?
+        </div>
+        <div class="answer"> The platform-public-key.pem is the public key which is shared to the lender during onboarding. This file is used to generate the headers which are used in the auth API. The same public key is also used during hmac generation.
+
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">16.What is the difference between the API dev portal & Identity server?
+        </div>
+        <div class="answer"> The identity server is only used to sign in your credentials. The API dev portal is the portal where you can view the list of APIs and subscribe to the APIs that you require.  </div>
+      </div>
+      <div class="faq">
+        <div class="question">17. Should I send an encrypted client-id or base64 encoded client-id as a header in the subscribed API? </div>
+        <div class="answer"> You should always send the base64 encoded client-id as a header. The encrypted client-id will be sent as a header-only during auth token generation. </div>
+      </div>
+      <div class="faq">
+        <div class="question">18. Can I translate from Hindi to Marathi or between any two vernacular languages?  </div>
+        <div class="answer"> No, you cannot translate between 2 vernacular languages. English should be included in either the source or destination. </div>
+      </div>
+      <div class="faq">
+        <div class="question">19. When and where will I receive the client-id and client-secret? </div>
+        <div class="answer"> At the end of the onboarding process, the lender organization shall also be issued
+          “Client Id” and “client-secret” by email to the designated points of contact
+          </div>
+      </div>
+      <div class="faq">
+        <div class="question">20. For a given khasraId where can I find the distid and tehid?  </div>
+        <div class="answer"> To find the distid and tehid for a given khasraId you can use the searchpropertydetails api. 
+
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">21. E045:Missing mandatory headers parameters?  </div>
+        <div class="answer">Kindly refer to the API specification for the subscribed API that you are trying to access and ensure all headers are included.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">22. Why can’t I directly use the client-id and client-secret to generate the auth token?
+        </div>
+        <div class="answer"> To avoid the client-id and client-secret being exposed directly we encrypt the client-id and client-secret.  
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">23. Error code E401: Polygon start and end vertices should be equal?
+        </div>
+        <div class="answer">The Polygon consists of 5 vertices. Always ensure the start and end vertices are the same </div>
+      </div>
+      <div class="faq">
+        <div class="question">24. What is the txncode in the  api header? </div>
+        <div class="answer">The transaction code is a Unique transaction code referring to a transaction in lender’s application. The txncode should be an alphanumeric value.  </div>
+      </div>
+      <div class="faq">
+        <div class="question">25. E076: Authentication Service Error: Invalid session-id or session -key?  </div>
+        <div class="answer"> You may face this error probably due to invalid public key while generating the auth token parameters. Please ensure you are using the relevant platform-public-key.pem file in both prod and non-prod environments.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">26. E078: Unsupported service provider?
+        </div>
+        <div class="answer">Refer API specs and ensure you are using the correct provider code. The provider code is a numerical value. 
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">27. How can I verify the integrity of the payload received?  </div>
+        <div class="answer"> To verify the integrity of the payload received. The platform offers a mechanism where the data is encrypted using SHA256withECDSA. The public key, signature and hmac is also found in the payload. 
+
+          The lender can use the public key and can verify the value of hmac received with the data in the response to ensure that the data hasn’t been tampered with.
+          
+          The source code to this can be requested over mail and will be shared over to the lender.</div>
+      </div>
+      <div class="faq">
+        <div class="question">28. How to generate client-key and client-secret (For multiple applications per user)?
+        </div>
+        <div class="answer"> Client-id and client-secret are mandatory for a user to create a bearer token which is used to invoke the API a user has subscribed to. 
+          Once the user has created multiple applications following SOP (Point 10.3) Sandbox Access - the SOP document is placed in our Google Drive. Then after step 3 the user has to select a particular environment (Sandbox /Production Keys) and then follow step 4 to generate the key.
+          </div>
+      </div>
+      <div class="faq">
+        <div class="question">29.After successful registration of the lender on the platform, how to generate a bearer token to access APIs?
+        </div>
+        <div class="answer">On successful registration, the lender will receive a User-Id and password to access the platform, along with the Client ID, Client Secret, and Public Key of the Platform.
+          Using the received Client ID, Client Secret, and Public Key of Platform, the lender can refer and Authorization API Specification v1.0 shared with them to generate encrypted client Id , client Secret , Session Key and Session ID.
+          Once encrypted client Id , client Secret , Session Key and Session ID  is generated, Lender can invoke Authentication API to generate auth token (bearer token) to access the API they have already subscribed to.
+           </div>
+      </div>
+      <div class="faq">
+        <div class="question">30. How to get ClientID from bearer Token?
+        </div>
+        <div class="answer"> Bearer token is essential for invoking API, in order to invoke API one of the mandatory header parameters is ClientID.
+          ClientID can be extracted from JWT bearer token from the field value of “aud”.</div>
+      </div>
+      <div class="faq">
+        <div class="question">31. How to get ClientID for the header parameter to invoke API? </div>
+        <div class="answer"> After successful registration on Platform lender will receive ClientID along with other details.
+          Ex- g9J9eLAqqbStOa41e6x1w31ONNoa
+          Received plain text ClientID needs to be encoded to Base64 value, Encoded Base64 value of ClientID should be passed in the header parameter as one of the mandatory header inputs to invoke API. 
+          Ex- ZzlqOWVMQyrYlN0T2E0MWU2eDF3MzFPTk5vYQ== (Base64)
+           </div>
+      </div>
+      <div class="faq">
+        <div class="question">32. Who is the audience of ‘PTPFC’ platform?
+        </div>
+        <div class="answer">IPTPF platform is built for business users and technical integration/development teams of regulated entities (RE) of the Reserve Bank of India (RBI).
+
+
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">33. What are the different environment setups that have been done for the PTPFC platform?  </div>
+        <div class="answer"> There are 4 different environments that have been set up in the IFTAS data center in Mumbai. These are QA, Sandbox, Pre-Production, and Production. 
+          An RE will get access to Sandbox, followed by Pre-production, and lastly Production environment in a progressive manner.
+          </div>
+      </div>
+      <div class="faq">
+        <div class="question">34. What are the Sandbox and Production URLs needed to be whitelisted at Lender’s end to start using the platform? 
+        </div>
+        <div class="answer">Below are the URLs needed to be white listed at lender’s end for the respective environment in order to start using the platform. Refer FAQ 37(Once IPs are whitelisted below URL will be accessible).
+          Sandbox:                 
+          
+          
+          
+          
+          Sl.no. 
+          Description 
+          Web Link
+          
+          
+          
+          
+          
+          
+          1
+          Authentication module 
+          https://auth.nonprod.rbihub.io
+          2
+          External GW 
+          https://extgw.nonprod.rbihub.io
+          3
+          APIM Dev portal 
+          https://am.nonprod.rbihub.io/devportal
+          4
+          Identity Server 
+          https://identity.nonprod.rbihub.io/carbon
+          
+          
+          
+          
+          
+          
+          Production:
+          
+          
+          
+          
+          Sl.no. 
+          Description 
+          Web Link
+          1
+          Authentication module 
+          https://auth.api.rbihub.io
+          2
+          External GW 
+          https://extgw.api.rbihub.io
+          3
+          APIM Dev portal 
+          https://am.api.rbihub.io/devportal
+          4
+          Identity Server 
+          https://identity.api.rbihub.io/carbon
+          
+           </div>
+      </div>
+      <div class="faq">
+        <div class="question">35.What are the public IPs needed to be whitelisted to start using the platform? 
+        </div>
+        <div class="answer"> Below are the lists of IPs needed to be whitelisted for respective environments.
+
+
+          Sandbox Environment: For the ingress i.e., incoming traffic to Platform from banks, whitelist the public IP 103.110.187.82
+          Production Environment: For the ingress i.e., incoming traffic to Platform from banks, whitelist the public IP 103.110.187.116 
+          For the egress i.e., outgoing traffic from Platform to banks, whitelist the following two public IPs 103.110.186.137 and 103.110.187.111
+          
+          
+          </div>
+      </div>
+      <div class="faq">
+        <div class="question">36.What is the certificate required by lender in order to access?   </div>
+        <div class="answer">Lender can get Platform public certificate from RBIH – SPOC if it is required by Lender to integrate any service from Platform. Kindly send an email to RBIH – SPOC or support@rbihub.io to get SSL certificate.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">37. What are the pre-requisites for registration on the PTPFC platform? 
+        </div>
+        <div class="answer">Below are the pre-requisites for registration on the IPTPF platform: -
+
+          Lender to fill out the Application Form which has been made available as part of Lenders Kit2 [IPTPF.pdf: Sec 13 Annexure – 1] and share it with the designated RBIH SPOC or mail it to  support@rbihub.io with an appropriate subject line.
+          
+           Lender to provide at least two contact names, one technical and another business, who will be testing the APIs with their official email ID and contact number with the designated RBIH SPOC.
+          
+           Lender to obtain contact details of the SPOC from RBIH for continuous handholding until production deployment.
+           Lender to provide their source lending system’s public IP address for whitelisting by RBIH, otherwise, the platform will not be accessible.
+           If required by the lender, refer to FAQ-8 to get public IP address of the Platform for whitelisting at the Lender’s side.
+           If the public certificate of the Platform is required by the Lender– Contact RBIH SPOC to get the same.
+           Public URL of the Platform if required to be whitelisted by Lender then please contact RBIH SPOC to get the URL list.
+           After completing the above steps, RBIH will complete the Lender registration and share the following details with Lender SPOC.
+          Credentials (user ID and Password) to log into the Platform
+          Client ID
+          Client Secret
+          Public Key of Platform
+           </div>
+      </div>
+      <div class="faq">
+        <div class="question">38.  How does the platform ensure data security? </div>
+        <div class="answer"> The platform uses the highest level of data encryption. All data in rest and transit is
+          encrypted using the most secure cryptographic algorithms. AES-256 is used for data
+          encryption in rest.
+          All the APIs are exposed as web services secured by TLS1.2 protocol having a minimum of RSA 2048-bit protection.
+          As a policy, no PII (Personally Identifiable Information) will be persisted on the platform. However, in the case of asynchronous API calls, it may be needed to temporarily store data for up to 4 hours.
+          </div>
+      </div>
+      <div class="faq">
+        <div class="question">39. Who owns the platform?  </div>
+        <div class="answer">Reserve Bank of India owns the IPTPF platform. </div>
+      </div>
+      <div class="faq">
+        <div class="question">40. What is the role of RBIH? 
+        </div>
+        <div class="answer">RBIH (Reserve Bank Innovation Hub) is a wholly owned subsidiary of RBI. RBIH is facilitating the development and operationalization of the platform. </div>
+      </div>
+      <div class="faq">
+        <div class="question">41. What is the support available to lenders? </div>
+        <div class="answer">Presently, support is available through email only. Lenders must write an email to
+          support@rbihub.io for all support-related queries. 
+          The platform support team will respond to general queries within 24 hours. Support required with respect to technology integration will be provided within 2 hours.
+           </div>
+      </div>
+      <div class="faq">
+        <div class="question">42. Do lenders have to pay during onboarding? </div>
+        <div class="answer"> Currently, no fee is being charged during onboarding.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">43. How can banks’ technical teams access API Specification documents?  </div>
+        <div class="answer">All API specifications and Error codes have been published for public access. Documents can be downloaded from HERE.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">44. How will the due diligence of the service providers be ensured? </div>
+        <div class="answer">Currently, we are onboarding reputed service providers whose services are already availed by reputed banks. In the future, we propose to jointly develop the due diligence of onboarding service providers’ policy in consultation with banks. </div>
+      </div>
+      <div class="faq">
+        <div class="question">45.How to request access for Non-Prod and Prod Environments?   </div>
+        <div class="answer"> To get access to the above environments please write to support@rbihub.io with the
+          subject line “Request for access to <name of the environment> - <Name of the Bank>”.
+          Lenders can expect response of the raised requests within 24 hrs.
+          </div>
+      </div>
+      <div class="faq">
+        <div class="question">46. What are the steps to Onboard a lender Organization on the Platform? </div>
+        <div class="answer">A lender organization will get access to the platform after the successful completion of the onboarding process, anchored by the RBIH support team. Please refer to the steps mentioned below:
+          Request for access to “Sandbox Environment”, as explained above
+          After RBIH acknowledges the access request, please be ready with the following
+                        documents for submission through email (portal in the future).
+          
+          Company Incorporation Letter
+          
+           Copy of License issued by Reserve Bank of India authorizing the entity to run
+                               banking and lending services.
+          Copy of company’s PAN card.
+          Copy of GST Certificate
+          A signed copy of the NDA and Agreement (will be made available by the RBIH
+                            support team).
+          Letter of Authority to designate TWO contact persons, one business and another technical point of contact.
+          Identity Proofs of the points of contact
+                        h.   Fill the attached form with the signature of GM or Equivalent, or above (at
+                              Annexure - 1).
+          Upon successful review of the documents submitted, the lender organization will be issued a welcome note by email. If the application is rejected, the lender organization will be intimated accordingly along with the reason for rejection. If an error is found in the application or required documents are not submitted, then an opportunity will be given to those lenders to resubmit their request to join the platform.
+          
+          At the end of the onboarding process, the lender organization shall also be issued “client Id” and “secret” by email to the designated points of contact.
+          
+           The technical point of contact shall himself/ herself/ designate subscribe to the APIs on the API gateway from the catalog.
+          
+          6)   Technical point of contact of the lender organization to submit the following:
+          a. The pool of IP addresses that need to be whitelisted.
+          b. The public key in PEM or PFX format
+          
+          7)   After submission of the above, the lender organization shall be able to start using the Sandbox environment.
+          
+           After successfully testing in the Sandbox environment and upon request from the designated business or technical point of contact, the lender organization will be provided access to Pre-Production and Production environments.
+           For all the support, please write an email to support@rbihub.io from the registered email Ids of the business and technical points of contact or people designated by them.
+           </div>
+      </div>
+      <div class="faq">
+        <div class="question">47. What are the benefits Lenders (Banks and NBFCs) can get from PTPFC Platform? </div>
+        <div class="answer"> Following are the benefits lenders will get from the platform: -
+
+          A data-driven approach to lending to minimize information asymmetry.
+          Enablement of the free and speedy flow of rule-based credit.
+          Enable innovative lending practices in a Plug and play model.
+          Potential to enable network effect.
+          Faster time to market for new products and services
+          Lower IT/integration costs.
+          Standardized data exchange methods.
+          </div>
+      </div>
+      <div class="faq">
+        <div class="question">48. What are the benefits borrowers can get from the PTPFC Platform?  </div>
+        <div class="answer">Following are the benefits borrowers will get from the platform: -
+
+          Potential to unlock the value of customers’ data, both financial and non-financial.
+          Lower cost of credit.
+          Enables tailored products.
+          Frictionless finance.
+          Reduces TAT (Turn Around Time).
+          Improved customer experience.
+           </div>
+      </div>
+      <div class="faq">
+        <div class="question">49. What are the TAT (Turn Around Time) of the platform?  </div>
+        <div class="answer"> The TAT of the platform is 8 seconds.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">50. I am getting a 500-response code when accessing the whitelisted IP. What could be the issue?  </div>
+        <div class="answer">This is an expected response when accessing the whitelisted API from a browser. You can rest assured that the platform's IP is whitelisted and all the pre-requisite steps are followed to access the APIs. Please refer SOP for the same.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">51. What is the list of services that are available in the platform? 
+        </div>
+        <div class="answer"> These are the list of services available in MVP: -
+
+          LRS [MP, MH, UP]
+          LRS search
+          Protean PAN
+          Protean Penny drop
+          Transliteration
+          CIBIL Credit score
+          CRIF Credit score
+          Teal	
+          Cubic Tree (Prop AI)
+          Perfios AA
+          DGV
+          Lien Marking
+          Protean eSign
+          NeSL eSign
+          Protean eKYC
+          Farm Yield Report
+          Farm Health Report
+          Soil Report
+          Farm Irrigation Report
+          In the future, more services will be added to the above list.
+          </div>
+      </div>
+      <div class="faq">
+        <div class="question">52.How can I find the details of khasraId, distId, and tehId for MP state?   </div>
+        <div class="answer">The process for getting MP data is -
+          From the Master excel sheet, you need to obtain the corresponding LGDCode after matching it with the Village and Tehsil from the document of the farmer.
+          
+          Once you have the LGDCode, you hit the Search Property API which will give you the list of all Khasra Numbers (such as 669) for the particular LGDCode and the corresponding KhasraID, distId, tehsilId. You will have to search for the Khasra Number that you require from the list given.
+          
+          Then with the KhasraID, distId, tehid you hit the MP LRS API which will give you the land details. 
+           </div>
+      </div>
+      <div class="faq">
+        <div class="question">53. While using Postman I am getting Error: tunneling socket could not be established.  </div>
+        <div class="answer">This is not a platform-specific error. This is due to proxy settings in Postman. Kindly check your proxy settings in Postman.
+          Alternatively, try using the cURL command.
+           </div>
+      </div>
+      <div class="faq">
+        <div class="question">54. I am getting this error -Requested language is not supported by provider and transliteration?  </div>
+        <div class="answer">You may face this error when the particular state does not support the language. Kindly use the language that the state provides. (Eg. Marathi for Maharashtra, Hindi for UP& MP). 
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">55. The IPs have been whitelisted I am still unable to establish a connection. </div>
+        <div class="answer">After the IPs have been whitelisted at both ends and you are still unable to establish a connection.
+          Try the following commands 
+          curl -v -i https://am.nonprod.rbihub.io
+           curl -v telnet://am.nonprod.rbihub.io and send us the log trace screenshots.
+           </div>
+      </div>
+      <div class="faq">
+        <div class="question">56. What is the value of the API-key?  </div>
+        <div class="answer">API Key is an optional header and currently not required for immediate use. </div>
+      </div>
+      <div class="faq">
+        <div class="question">57.How many concurrent transactions can the platform handle?   </div>
+        <div class="answer">We plan to service up to 150 concurrent users. This enables the platform to process a minimum of 18-20 transactions per second.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">58.For PAN verification can lenders use the existing OPV certificate and credentials?   </div>
+        <div class="answer">Yes. If we get the current OPV User ID and certificate mapped.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">59.  In the dev portal I see land record details -pp record details -sb what do I subscribe to in the wso2 dev portal?  </div>
+        <div class="answer">You will need to subscribe to sb which is the environment used for testing in non-prod.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">60. Bank compliance requires a security report of the platform where can I find it?  </div>
+        <div class="answer">The security report of the platform can be requested over mail with relevant details. </div>
+      </div>
+      <div class="faq">
+        <div class="question">61. How can banks’ technical teams access API Specification documents?  </div>
+        <div class="answer"> All API specifications and Error codes have been published for public access. Documents can be downloaded from HERE. </div>
+      </div>
+      <div class="faq">
+        <div class="question">62. In dev portal I see land record details -pp record details -sb what do I subscribe to in wso2 dev portal?  </div>
+        <div class="answer">You will need to subscribe to Sandbox which is the environment used for testing in non-prod.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">63. For PAN verification can lender use the exiting OPV certificates and credentials? 
+        </div>
+        <div class="answer">We plan to service up to 150 concurrent users. This enables the platform to process a minimum of 18-20 transactions per second. 
+
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">64. In dev portal I see land record details -pp record details -sb   what do I subscribe to in wso2 dev portal?  </div>
+        <div class="answer"> You will need to subscribe to Sandbox which is the environment used for testing in non-prod.</div>
+      </div>
+      <div class="faq">
+        <div class="question">65. At which port service provider’s URL should be whitelisted?  </div>
+        <div class="answer"> From platform side, only standard port 443 allowed to be whitelisted at IFTAS data center. Any custom port from lender’s side other than 443 is not allowed.</div>
+      </div>
+      <div class="faq">
+        <div class="question">66. How can banks’ technical teams access API Specification documents? 
+        </div>
+        <div class="answer"> All API specifications and Error codes have been published for public access. Documents can be downloaded from HERE. 
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">67. What is the TAT (Turn Around Time) of the platform? </div>
+        <div class="answer">The TAT of the platform is 8 seconds </div>
+      </div>
+      <div class="faq">
+        <div class="question">68. What does below error mean - “code”:” E008”,” message”: “Invalid API version code”?
+        </div>
+        <div class="answer">Please make sure that the URL version and the meta version in the body should match.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">69. What does below error mean? 
+          {"data”: null,"status":"400","message":"Invalid bank branch name value"}
+           </div>
+        <div class="answer"> Please note the branch name field does not support any special characters. pFA the image below,</div>
+      </div>
+      <div class="faq">
+        <div class="question">70. Some query asked from the Bank for details of RBIH certificates </div>
+        <div class="answer"> Encryption & Key Management.
+
+          a. Encryption standard with Key Size - RSA-2048
+          b. hashing standard with Key Size - HMAC-SHA-256
+          c. SSL version - TLS 1.2, TLS 1.3
+          d. Key Storage - Not Applicable
+          e. Rotation (Static/dynamic) - Not Applicable
+          f.  Exchange/Sharing - Not Applicable
+          
+          
+          2. API details of RBIH APIs:
+               
+          Throttling / Rate limiting implemented (Y/N) - Y (300 RPM - Can be Increased on Demand)- can be configure in the WSo2.
+          Size limiting implemented (Y/N) – N
+          Lifetime of API - The current version of the API will remain active and supported until a major version upgrade is released. Upon introducing a new major version, clients will be notified in advance. After releasing a new major version, we will provide a migration period of 1 month. Following the 1-month migration period, the older version of the API will be sunset.
+          Version Control implemented (Y/N) – Y
+          Source Code Review – Y
+          API integrated with Bank API Gateway (Y/N) - Need Clarification</div>
+      </div>
+
+      <div class="faq">
+        <div class="question">71.  While integrating the Penny Drop Service API getting error “Provider   service is down or not reachable”.
+          "ifsc":"KKBK0000628",
+          "bankResponse": "Provider service is down or not reachable"
+          },
+          "Status-code": "E028",
+           </div>
+        <div class="answer">Answer- It is a service provider issue or I have to check the log. </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">72.Issue with ICICI Bank in listdisttalukvillage API error below: 
+          {“code” :, “message”: Unauthenticated at backend level”, “description” : “Digest authentication is not supported by the backend”} 
+           </div>
+        <div class="answer">Solution -> This is due to it was using Digest Auth instead of Basic Auth so we have done changes to Basic Auth for Proxy Backend APIM in WS02. </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">73. Some important notes:</div>
+        <div class="answer">Criteria for Tickets Types in Spiceworks:
+
+          Incident - Disruption in service; It requires workaround or fix.
+          Service Request - Request from lenders, service providers or other stakeholders.
+          Alert - for Alerts which are neither Incident nor Service request.
+          Issues Such as:
+          500 Internal Server Error watcher alert, 
+          503 Service Unavailable for LienMarking-Dynamic-Callback from MP LRS
+          500 Search-Property-Details MP
+          500 SP-LRS-MP-Khasra DetailCkList
+          Comment should be in tickets as internal notes:
+          1. This issue has not been reported by the bank. This issue is reported through the Platform Watcher alert. The issue got auto resolved as subsequent transactions were OK.
+          2. Such an issue earlier has been reported many times to the Service Provider (SP) also.
+          3. As per SP, the issue is intermittent and could be due to various reasons such as network issues, server downtime, maintenance, etc. For which it is very difficult to provide RCA and take action and such an issue gets auto resolved as well.
+          4. Hence no action is required so closing the ticket.
+          
+          Time Convention in Elastic Search.
+          Out GW Time – UTC
+          Ext GW Time – UTC
+          Micro Service time - IST
+          
+          
+          Meaning of symbol <<&>> in elastic Logs
+          << in Elastic log means --> coming to Platform
+          >> in Elastic log means --> going out from
+          platform. </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">74. What should I do if the lien marking API response shows a 'Fail' status?"</div>
+        <div class="answer"> Solution: This error could be due to various reasons.
+
+          If we saw “is-insufficient”: “N” in the response, we need to Request a refill of the wallet balance (For service provider in UAT and ECO-system in Production). And raise a bug to the testing team to address and fix the issue. Also need to change the error message accordingly 
+          
+          This issue can also occur, if there is an issue with test data (UAT) or any issue with service provider. Then we need to inform service provider with proper logs.
+          </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">75. The availability of land data API in production is for all the districts of Tamil Nadu state or only for limited districts?</div>
+        <div class="answer"> - It covers all districts of Tamil Nadu. But only the registered lands in GRAINS will be available now. (In the GRAINS portal, the farmer / VAO have to compulsarily register their land). If a farmer / beneficiary approaches the bank and if their identity is not available in GRAINS, they should be advised to approach the local VAO / Agricultural officer and get themselves registered.
+
+          Note: VAO - Village Administration Officer.
+          </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">76. What does the below error mean? {"data”: null,"status":"E045","message”: “Missing mandatory header parameter"} for master data API (MP and UP)?
+        </div>
+        <div class="answer">Note: Refer to the API specs to ensure that you are passing all mandatory header parameters. For example, we may forget to include the mandatory header parameter "content-application/json" one of all mandatory header parameters.
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">77.What does the below error mean? {"errorcode":"E039",” status”: “failed”, “message”: “Request payload timestamp is either invalid or should be less than 60 seconds old or cannot be in future"}.
+        </div>
+        <div class="answer"> While accessing the API, the header request timestamp should be within 60 seconds range of the current timestamp.
+
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">78. Can we consider total area for LRS MH is equal to cultivable area in khata + Non cultivable area in Khata number.
+        </div>
+        <div class="answer">Yes. as confirmed by LRS MH team total area is equal to cultivable area in khata + non cultivable are in khata. </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">79.Can we get address of owner in LRS MH Response?
+        </div>
+        <div class="answer"> As we are maintaining CDS (Common data schema) you will find the address field in the API response but as per the update from LRS MH owner address data will be available in future release. Hence as of now this field will be empty for LRS MH. </div>
+      </div>
+      <div class="faq">
+        <div class="question">80.Can we get the father’s name field in LAND OWNER DETAILS in the response in API for LRS MH?
+        </div>
+        <div class="answer"> As we are maintaining CDS (Common data schema) you will find the father’s name field in the API response but as per the update from LRS MH they will not provide the father’s name details. Hence as of now this field will be empty for LRS MH. 
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">81. What should we do if we face a 403 Forbidden / 900908 error? </div>
+        <div class="answer">Solution: This error could be due to various reasons
+          One of the reasons- This error will occur if any Bank has deleted the WSO2 application from the portal. Refer Question Number -9.
+          NOTE-They must subscribe to this API in the WSO2 Dev-Portal.
+           </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">82. What if the Banks are receiving failure message (E028 Provider Service is down or not reachable) when they interact with the Penny drop API?
+        </div>
+        <div class="answer">Solution: This error could be due to various reasons. 
+          Service provider issues require us to check the logs. If the service provider is down, we should inform them. 
+          One of the reasons - If the same account number is hit repeatedly, banks receive failure as per the table below: </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">83. Important Notes for Lienmarking API of LRS MP: </div>
+        <div class="answer">Note: For lienmarking API of LRS MP, Lenders will receive two documents during call-back, one is PDF1 and another one PDF3, PDF1 is digitally signed document and PDF3 is tehsildar signed document, but as we check during call-back, canara bank has received PDF1 document as blank. It doesn't contain any information as pending with tehsildar or patwari. 
+
+          As we check the PDF1 document from MP bhulekh portal it is updated as "Vicharadhin" विचाराधीन(column-9) but the PDF1 doc received through the platform is blank. Hence, we need to check with the service provider to update these details on the PDF1 document. Going forward if any bank reports this issue, we need to update it to the service provider.
+           </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">84.What are the average and maximum size of report for PROP AI Callback documents? </div>
+        <div class="answer">  -From the service provider the average size of the report for PROP AI is between 2 MB - 5 MB and the maximum size is 10MB.
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">85. If any services are down or failing and no alerts are received by any watcher in Spiceworks, what should we do?</div>
+        <div class="answer">- In this scenario, we need to review the ELK dashboard in Elastic (PROD) and notify the DevOps team.
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">86. In the Production Environment, all API services were producing “Runtime Error” and “500 Internal Server Error” as below Screenshot. What was the solution for this? </div>
+        <div class="answer"> #As L1 team, we have to informed DevOps team related this issue. <br> : - There was a certificate issue. We have four deployments according to WSO2.
+ 
+          Whenever we receive a certificate, in addition to implementing the SSL certificates, WSO2 also requires an additional step, which involves adding the certificate to the trust store.
+          
+          We must add it to the trust store, and furthermore, restart the V pods. While SSL certificates do not necessitate a pod restart.
+          
+          However, for this particular case, a trust store deployment restart is necessary, and this restart will affect two pods, specifically both Application manager gateway pods.
+          
+          This information will be valuable for future reference in similar situations involving SSL certificates and WSO2 deployments. Stressing the importance of adding the certificate to the trust store and restarting the relevant deployment.
+          
+          Please refer to the recorded video for more information below:
+          Link-https://www.myqnapcloud.com/u?#/shared/device?tab=friend_device&r=1715592147308
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">87. Bank/lender are getting “Could not get response” error for RBIH auth token API in UAT.
+        </div>
+        <div class="answer">- For this error the harbor registry password has expired for Auth API in Micro services, and it has been updated by L2-team (Kumar Gandhi).
+
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">88.Where can we check the wallet for lien marking in the UAT environment?
+        </div>
+        <div class="answer"> - We must go to the designated website and input the necessary login Credentials for access.
+
+          URL - https://webgisqc.co.in/mpbhulekh.do
+          
+          Credentials:
+          login id: RBIHUB
+          password: pass@123
+          </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">89. In case of some bank or lender unable to telnet our UAT or Prod IP or facing any connectivity issue?
+        </div>
+        <div class="answer">- During the initial days, some whitelisting was initially done for only 1 year. Later, the IFTAS team extended it for the next 10 years, up to 2033, for all individuals.  
+
+          If it is not whitelisting or expiry date issue or any new lender onboard to our platform facing this issue then,
+          
+          Then need to go through the checklist that was uploaded in drive.
+          https://drive.google.com/drive/folders/1mCus_CPRJBGhApYeQYUN1muKHLpmkq8D
+
+Please go through this check list and confirm lenders have completed all the prerequisite as mentioned in the checklist.
+
+If lenders have completed all the prerequisite as mentioned in the checklist and still they are facing the connectivity or telnet issue then,
+
+We need to collect output result screenshot of following commands from lender  and share it to iftas for further troubleshooting.
+
+OS
+Category
+Command - Nonprod
+Command - Prod
+Linux/Mac
+TCP Traceroute - Port 443
+tcptraceroute auth.nonprod.rbihub.io 443
+tcptraceroute auth.api.rbihub.io 443
+Telnet Port 443
+telnet 103.110.187.82 443
+telnet 103.110.187.82 443
+
+
+
+
+
+
+Curl HTTPS
+curl -v https://auth.nonprod.rbihub.io
+curl -v https://auth.api.rbihub.io
+
+
+
+
+
+
+
+
+Windows
+TCP Traceroute - Port 443
+nmap --traceroute -p 443 auth.nonprod.rbihub.io
+nmap --traceroute -p 443 auth.api.rbihub.io
+Telnet Port 443
+telnet 103.110.187.82 443
+telnet 103.110.187.82 443
+Curl HTTPS
+curl -v https://auth.nonprod.rbihub.io
+curl -v https://auth.api.rbihub.io
+
+
+           </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">90.The mail to respective support mail ids to get appropriate response from Service Providers. </div>
+        <div class="answer">OPV Support: support_nsdl@proteantech.in
+          E-KYC Support:  support@proteantech.in
+          E-sign Support: esign-help@proteantech.in
+          Penny drop: gst_gvs_integration_support@proteantech.in
+          Prop Search Teal: support@tealindia.in , product@tealindia.in 
+          To be added…
+           </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">91. Lender SOP for eKYC Service in order to integrate PTPFC’s eKYC service below criteria need to be full field by lender. </div>
+        <div class="answer"> Note: The old public key that will be used for OPV 1.3 and authentication API must be shared with lenders when they request the public key. 
+          For SSL certificates the new SSL certificate should be shared to lenders upon request.
+          
+          
+          Kindly locate the Google Drive link, which contains all of the certificates.
+          
+          https://drive.google.com/drive/folders/169-aVI1h76iO_7H2_KCgCkaKYFgaBWJG
+          
+          
+          Note:In the API response for “landowner details” under the module “mortgageDetails.remarks” below is the behaviour of field “mortgageRemarks”  :-
+           
+          1)     In case service provider is sending only one remark then “mortgageRemarks” field will be of object type. 
+          2)    If there are multiple remarks coming from service provider then “mortgageRemarks” field will be of type JSON Array.
+           Above behaviour of the field “mortgageRemarks” is as per platform design.
+          </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">92. Can we whitelist the IP Segments(Subnet IPs) of lenders in our Platform ?
+        </div>
+        <div class="answer"> According to the update from IFTAS, we can only whitelist IP segments(Subnet IPs) for the Non-Prod environment.
+
+          Note: IP segments(Subnet IPs) are not allowed to be whitelisted in the Production environment.
+          
+          
+          Note:
+          For the egress i.e., outgoing traffic from PTPFC platform , Lenders need to whitelist the two public
+          IPs 
+          103.110.186.137 (Prod and Non prod)
+          103.110.187.111 (Prod and Non prod)
+          </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">93.What are the pre-requisites required for Online PAN Validation for Lenders  </div>
+        <div class="answer">image need to add here </div>
+      </div>
+      <div class="faq">
+        <div class="question">94. What are the steps required to upload a PFX Certificate for Online PAN Validation ?
+        </div>
+        <div class="answer"> Steps for Pfx cert upload in RBIH Production for Protean OPV:
+
+          Existing client of Protean:
+          
+          Case 1) If Bank has opted for new/additional Protean user id :-
+          1. Bank to put up Request letter to Protean for new/additional User ID for existing Pfx cert.
+          2. Bank to share below artifacts with Protean:
+          Application form (including the screenshot of existing Pfx certificate serial details) 
+          Existing pfx cert for mapping on Protean side.
+          Payment mode confirmation
+          3. Protean will share the new Protean User ID with the Bank after mapping it on the Protean side.
+          4. Bank will share the new Protean User ID, pfx cert, pfx cert password for upload in Platform Production by RBiH
+          5. RBIH will complete the upload for items as mentioned in #4.
+          Case 2) If Bank has opted for existing Protean user id for OPV:-
+          Start with step#4 as mentioned in case 1.
+          The certificate shared by the Banks should be a valid certificate and not the outdated certificate or an UAT Certificate.
+          
+          New to Protean:
+          1. Bank to procure pfx class 3 cert from agencies such as eMudhra.
+          2. Online Registration with Protean
+          3. Document execution with Protean
+          4. ITD approval 
+          5. Bank’s Integration Testing with Protean
+          6. Advance Payment  to Protean.
+                     7. Bank to share below artifacts with Protean:
+          Application form (including the screenshot of Pfx certificate serial details) 
+          Pfx cert for mapping on the Protean side.
+          Payment mode confirmation
+          8. Bank will share the Protean User ID, pfx cert, pfx cert password for upload in Platform Production by RBiH
+                      9. RBIH will complete the upload for items as mentioned in #8.
+          Short Summary of pfx in production for PAN Verification.
+          Steps for Pfx cert upload in RBIH Production:
+          1. Bank to procure pfx class 3 cert from e.g. eMudhra.
+          2. Bank to share the serial number of PFX cert along with application form  & its screenshot with Protean for mapping on Protean side.
+          3. Protean will share the User ID with the Bank after mapping on the Protean side.
+          4. Bank will share the User ID, pfx cert, pfx cert password for upload in Platform Production by RBiH
+          5. RBIH will complete the upload as mentioned in #4.
+          
+          </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">95.  What are the different Ingress and Egress IPs for various environments?
+        </div>
+        <div class="answer">PTPFC Ingress: 
+
+          103.110.187.82 SandBox
+          103.110.187.116 Prod
+          103.110.186.152 DR
+          
+          PTPFC Egress (common for all environments):
+          
+          103.110.186.137 
+          103.110.187.111
+           </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">96.How do I search for logs in ELK using KQL syntax?
+        </div>
+        <div class="answer"> To search for logs in ELK with a specific message and hostname, you can use the following query, for example : property search cubictree dynamic callback (PropAI)
+
+          message : "Status Code:403 " and agent.hostname : "prop"
+          
+          This will filter the logs to show only those entries where the message contains "status code: 403" and the agent.hostname is "prop".
+          
+          Note: The syntax can vary depending on the case
+          </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">97. How do am.allinone and am.gateway relate to their respective gateways ?</div>
+        <div class="answer"> am-allinone : Maps to outgateway
+          am-gateway : Maps to extgateway
+          
+          These mappings define the gateway associations for each component.
+          </div>
+      </div>
+
+      <div class="faq">
+        <div class="question">98.What is the maximum pdf size which can be sent by Satsure in UAT and Prod  in the PTPFC platform’s callback ?
+
+        </div>
+        <div class="answer"> The payload size varies depending on the number of farms included, with a significant difference when the payload includes a base64 encoded PDF. Below is a breakdown:</div>
+      </div>
+      <div class="faq">
+        <div class="question">99. What are the required headers for NeSL eSign, specifically for SB, that need to be provided to the lender?
+        </div>
+        <div class="answer"> The following headers are required for NESL eSign, specifically for SB, and must be provided to the lender
+          x-sp-client-id: RBIHUBQA
+          x-sp-api-key: MsclWECh5j4xZjHhbR60
+          x-sp-authorization: Basic UkJJSFVCUUE6MEN2a3JEM0Y=
+          Note: For production Lender has to integrate with service provider(NeSL)
+          </div>
+      </div>
+      <div class="faq">
+        <div class="question">100. Why do we get an "E045: Missing mandatory header parameter " error even when all headers are sent by the lenders?</div>
+        <div class="answer">This error usually occurs when lenders are using the wrong endpoint with the correct headers. For example, the headers might be set correctly for the /getconsentformilkinsights endpoint, but the request is sent to a different endpoint, such as /getfarmermilkinsights. Ensure that the headers match the specific endpoint being used. </div>
+      </div>
+      <div class="faq">
+        <div class="question">101. How can we ensure timely wallet recharge for penny drop services in the UAT environment to avoid interruptions during testing? </div>
+        <div class="answer">The wallet for the UAT environment will be recharged as needed. This approach was explained to the lender by the Ecosystem Team at the start of service setup. Since this is a UAT environment with financial and auditing requirements, keeping an unlimited balance isn’t possible.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">102.What should the bank do if the Survey number / LPM number is not present in the customer's document?
+        </div>
+        <div class="answer"> After discussion with the Service Provider, we got the information that the Survey number / LPM number is present in the customer's document. But, if the LPM number is not present in the customer's document then the bank has to contact Local PMU(Project Management Unit) in order to get the LPM number.
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">103. </div>
+        <div class="answer"> </div>
+      </div>
+      <div class="faq">
+        <div class="question">104. </div>
+        <div class="answer"> </div>
+      </div>
+      <div class="faq">
+        <div class="question">105. </div>
+        <div class="answer"> </div>
+      </div>
+      <div class="faq">
+        <div class="question">106. </div>
+        <div class="answer"> </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 RESERVE BANK INNOVATION HUB, BANGALORE.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.question').forEach(question => {
+      question.addEventListener('click', () => {
+        question.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
