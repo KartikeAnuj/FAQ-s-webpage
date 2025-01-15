@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQs</title>
+  <title>ULI-FAQs</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
+  <header class="header1">
     <div class="container">
       <div class="header-content">
         <div>
-          <h1 >Lender’s FAQs</h1>
+          <h1 >Lender’s Support</h1>
           <h1>Unified Lending Interface (ULI)</h1>
           
           <p>
@@ -1040,12 +1040,125 @@ curl -v https://auth.api.rbihub.io
     <p>&copy; 2024 RESERVE BANK INNOVATION HUB, BANGALORE.</p>
   </footer>
 
-  <script>
+  <!-- /* <script>
     document.querySelectorAll('.question').forEach(question => {
       question.addEventListener('click', () => {
         question.classList.toggle('active');
       });
     });
-  </script>
+  </script> */ -->
+
+  <!-- document.querySelectorAll('.question').forEach(question => {
+    question.addEventListener('click', () => {
+      question.classList.toggle('active');
+  -->
+  <div class="chat-widget minimized" id="chatWidget">
+    <div class="header" onclick="toggleChatWidget()">
+        <img src="logo.png" alt="Chatbot Logo" class="logo-top-left">
+        <div class="typing" id="typingText">Chatbot</div>
+        <button class="minimize-btn" id="minimizeButton">_</button>
+    </div>
+    <div class="messages" id="messages"></div>
+    <div class="input-container">
+        <input type="text" id="userInput" placeholder="Type your question..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+
+      document.querySelectorAll('.question').forEach(question => {
+      question.addEventListener('click', () => {
+        question.classList.toggle('active');
+      });
+    });
+  
+    const apiUrl = "http://127.0.0.1:5000/chatbot";
+
+    function toggleChatWidget() {
+        const chatWidget = document.getElementById("chatWidget");
+        const minimizeButton = document.getElementById("minimizeButton");
+
+        if (chatWidget.classList.contains("minimized")) {
+            chatWidget.classList.remove("minimized");
+            minimizeButton.textContent = "_";
+        } else {
+            chatWidget.classList.add("minimized");
+            minimizeButton.textContent = "+";
+        }
+    }
+
+    function startTypingAnimation() {
+        const typingText = document.getElementById('typingText');
+        
+        // Removing the animation to reset
+        typingText.style.animation = 'none';
+        // Trigger reflow to restart animation
+        void typingText.offsetWidth;
+        
+        // Applying the animation
+        typingText.style.animation = 'typing 2s steps(8) 1s forwards, deleting 1s steps(8) 3s forwards';
+    }
+
+    function sendMessage() {
+        const userInput = document.getElementById("userInput").value;
+        if (!userInput) return;
+
+        const messagesDiv = document.getElementById("messages");
+
+        // Adding user's message
+        const userMessage = document.createElement("div");
+        userMessage.className = "message user";
+        userMessage.textContent = userInput;
+        messagesDiv.appendChild(userMessage);
+
+        // Clearing input field
+        document.getElementById("userInput").value = "";
+
+        // Calling API
+        fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ question: userInput })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const botMessage = document.createElement("div");
+            botMessage.className = "message bot";
+            botMessage.innerHTML = data.answer || "Sorry, I didn't understand that.";
+            messagesDiv.appendChild(botMessage);
+
+            // Scrolling to the bottom
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        })
+        .catch(error => {
+            console.error(error);
+            const errorMessage = document.createElement("div");
+            errorMessage.className = "message bot";
+            errorMessage.textContent = "Error connecting to server.";
+            messagesDiv.appendChild(errorMessage);
+        });
+
+        // Restarting the typing animation after sending the message
+        setTimeout(startTypingAnimation, 3000); // Delay to allow typing effect before restarting
+    }
+
+    const inputField = document.getElementById("userInput");
+    inputField.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Preventing newline if it's a textarea
+            sendMessage();
+        }
+    });
+
+
+    // Starting the typing animation on page load
+    window.onload = () => {
+        startTypingAnimation();
+        setInterval(startTypingAnimation, 4000); // Repeating the animation every 4 seconds
+    };
+</script>
 </body>
 </html>
